@@ -1,5 +1,4 @@
 /* ================= VARIABLES Y RESET ================= */
-/* :root define variables globales. Cambiar un color aquí lo cambiará en toda la página */
 :root {
     /* Modo Claro */
     --bg-color: #F8F6F0;       /* Beige clarito para el fondo de la página */
@@ -12,41 +11,36 @@
     --border-color: #E5E0D8;   /* Color de las líneas separadoras */
 }
 
-/* Variables para cuando el "Modo Oscuro" está activado en el <body> */
+/* Variables para cuando el "Modo Oscuro" está activado */
 body.dark-mode {
-    --bg-color: #121212;       /* Fondo gris casi negro */
-    --text-main: #EAEAEA;      /* Texto principal casi blanco para contrastar */
-    --text-muted: #A0A0A0;     /* Texto secundario gris claro */
-    --burgundy: #7A192A;       /* Burdeo más brillante para que se note en la oscuridad */
-    --burgundy-hover: #9E2238; /* Efecto hover del burdeo oscuro */
-    --pink-light: #2A1A1C;     /* Rosa muy oscuro, casi marrón, para mantener la estética */
-    --white-cards: #1E1E1E;    /* Gris oscuro para las tarjetas en vez de blanco puro */
-    --border-color: #333333;   /* Bordes oscuros */
+    --bg-color: #121212;
+    --text-main: #EAEAEA;
+    --text-muted: #A0A0A0;
+    --burgundy: #7A192A;
+    --burgundy-hover: #9E2238;
+    --pink-light: #2A1A1C;
+    --white-cards: #1E1E1E;
+    --border-color: #333333;
+    
+    /* IMPORTANTE: Apagamos el patrón de "miguitas" de fondo en modo oscuro */
+    background-image: none; 
 }
 
-/* El asterisco (*) aplica estas reglas a TODOS los elementos de la página */
-* {
-    margin: 0; /* Quita los márgenes por defecto del navegador */
-    padding: 0; /* Quita el relleno por defecto */
-    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total de los elementos */
-    font-family: 'Georgia', serif; /* Tipografía elegante por defecto */
-}
-
-/* Reglas generales para el cuerpo de la página */
 /* El asterisco (*) aplica estas reglas a TODOS los elementos de la página */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Quitamos la font-family de aquí para asignarla específicamente abajo */
 }
 
 /* Reglas generales para el cuerpo de la página */
 body {
     background-color: var(--bg-color);
+    /* Patrón de fondo sutil (simula chispas o harina esparcida) */
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234A0E17' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='5' cy='5' r='2'/%3E%3Ccircle cx='25' cy='25' r='2'/%3E%3Cpath d='M15 35 l4 -4 l-4 -4 z'/%3E%3Cpath d='M35 15 l4 -4 l-4 -4 z'/%3E%3C/g%3E%3C/svg%3E");
     color: var(--text-main);
     transition: background-color 0.3s, color 0.3s;
-    font-family: 'Montserrat', sans-serif; /* Fuente limpia y redondita para textos normales */
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Títulos */
@@ -55,147 +49,141 @@ h1, h2, h3, h4 {
     color: var(--burgundy);
 }
 
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-    color: var(--text-main);
-}
-
 /* Cambia el color de los títulos a blanco/gris claro cuando está en modo oscuro */
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
     color: var(--text-main);
 }
 
-/* Quita el subrayado de los enlaces y les pone el color heredado de su contenedor */
+/* Quita el subrayado de los enlaces y los puntos de las listas */
 a { text-decoration: none; color: inherit; }
-/* Quita los puntos de las listas (usado en el navbar y footer) */
 ul { list-style: none; }
 
-/* ================= TOP BAR & NAVBAR (NUEVO DISEÑO) ================= */
-/* Barra superior pequeñita para el botón de modo oscuro */
+/* ================= TOP BAR & NAVBAR (DISEÑO FLOTANTE) ================= */
 .top-bar {
     display: flex;
-    justify-content: flex-end; /* Empuja el botón a la derecha */
-    padding: 10px 40px 0px 40px; /* Arriba, Derecha, Abajo (0), Izquierda */
+    justify-content: flex-end;
+    padding: 10px 40px 0px 40px;
     background-color: var(--bg-color);
 }
 
-/* Botón de la lunita/sol */
 .btn-theme {
     background: var(--burgundy);
     color: #fff;
     border: none;
     padding: 8px 15px;
-    border-radius: 20px; /* Lo hace redondito */
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
 }
 
-/* Envoltorio del Navbar para que respire por los lados y se quede pegado arriba */
+/* Animación para que el Navbar flote */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); } /* Sube 8 píxeles suavemente */
+    100% { transform: translateY(0px); }
+}
+
 .header-wrapper {
-    background-color: var(--bg-color);
-    padding: 10px 4vw; /* Da margen a los lados (4% del ancho de la pantalla) */
-    position: sticky; /* Hace que el menú baje contigo al hacer scroll */
-    top: 0; /* Se pega al tope exacto de la pantalla */
-    z-index: 100; /* Lo pone por encima de todos los demás elementos (carrusel, fotos) */
+    background-color: transparent; /* Fondo transparente para ver el patrón atrás */
+    padding: 10px 4vw;
+    position: sticky;
+    top: 10px; /* Margen superior para que flote bien */
+    z-index: 100;
+    animation: float 4s ease-in-out infinite; /* Aplica la animación */
 }
 
-/* El menú en sí (diseño de píldora flotante) */
 .navbar {
-    display: flex; /* Permite alinear elementos horizontalmente */
-    justify-content: space-between; /* Separa logo, links e íconos */
-    align-items: center; /* Los centra verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 40px;
-    background-color: var(--burgundy); /* Fondo rojo oscuro */
-    border-radius: 50px; /* Curva los bordes para hacer la forma de píldora */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra suave para dar efecto 3D flotante */
+    background-color: var(--burgundy);
+    border-radius: 50px;
+    box-shadow: 0 15px 35px rgba(74, 14, 23, 0.2);
+    position: relative; /* Necesario para centrar los enlaces absolutamente */
 }
 
-/* Ajustes de color de texto dentro del navbar (para que se lea sobre el burdeo) */
 .navbar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--bg-color); /* Letras claras */
+    color: var(--bg-color); 
 }
 
+/* Centrado absoluto de los links */
 .nav-links {
     display: flex;
-    gap: 30px; /* Separación entre cada link */
+    gap: 30px;
     font-size: 0.9rem;
-    text-transform: uppercase; /* Vuelve el texto MAYÚSCULA */
+    text-transform: uppercase;
     letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centra perfectamente */
 }
 
 .navbar .nav-links a {
-    color: var(--bg-color); /* Links claros */
+    color: var(--bg-color);
     font-weight: 600;
 }
 
 .navbar .nav-links a:hover {
-    color: var(--pink-light); /* Se pone rosita al pasar el mouse */
+    color: var(--pink-light);
 }
 
 .nav-icons {
     display: flex;
     gap: 20px;
     font-size: 1.2rem;
-    color: var(--bg-color); /* Íconos claros */
+    color: var(--bg-color);
 }
 
-/* ================= HERO CAROUSEL (NUEVO INICIO) ================= */
-/* Contenedor principal del carrusel */
+/* ================= HERO CAROUSEL ================= */
 .hero-carousel {
-    position: relative; /* Necesario para que las imágenes hijas se posicionen dentro de él */
-    height: 80vh; /* Ocupa el 80% del alto de la pantalla visible */
-    min-height: 500px; /* Pero nunca menos de 500px */
-    margin: 20px 4vw 60px 4vw; /* Márgenes exteriores para igualar al navbar */
-    border-radius: 30px; /* Esquinas redondeadas */
-    overflow: hidden; /* Corta cualquier imagen que se salga de los bordes redondeados */
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    margin: 20px 4vw 60px 4vw;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
-/* Capas del carrusel (imágenes y sombreado) */
 .carousel-slides, .slide, .carousel-overlay {
-    position: absolute; /* Se apilan una encima de otra */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
 
-/* Cada imagen individual del carrusel */
 .slide {
-    background-size: cover; /* Hace que la imagen llene todo el espacio sin deformarse */
-    background-position: center; /* Centra la foto */
-    opacity: 0; /* Por defecto están invisibles */
-    transition: opacity 1s ease-in-out; /* Animación de 1 segundo para aparecer suavemente */
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Solo la imagen con la clase 'active' se hace visible */
 .slide.active {
     opacity: 1;
 }
 
-/* El degradado oscuro para que el texto blanco sea legible */
 .carousel-overlay {
-    /* Va de izquierda (casi negro) a derecha (transparente) */
     background: linear-gradient(to right, rgba(20, 10, 10, 0.85) 0%, rgba(20, 10, 10, 0.4) 50%, transparent 100%);
-    z-index: 1; /* Nivel 1 de apilamiento (sobre las fotos, debajo del texto) */
+    z-index: 1;
 }
 
-/* Contenedor del texto del carrusel */
 .hero-content {
     position: absolute;
-    top: 50%; /* Baja el texto a la mitad */
-    left: 8%; /* Lo separa un 8% del borde izquierdo */
-    transform: translateY(-50%); /* Ajuste fino para centrarlo verticalmente perfecto */
-    z-index: 2; /* Nivel 2 (encima del degradado) */
-    max-width: 600px; /* Evita que el texto cruce toda la pantalla */
-    color: white; /* Fuerza el color blanco */
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+    max-width: 600px;
+    color: white;
 }
 
 .hero-content h1 {
     color: white; 
     font-size: 4rem;
-    line-height: 1.1; /* Reduce el espacio entre líneas del título */
+    line-height: 1.1;
     margin-bottom: 20px;
 }
 
@@ -206,10 +194,9 @@ ul { list-style: none; }
     line-height: 1.5;
 }
 
-/* Botón especial del carrusel */
 .btn-hero {
-    background-color: var(--bg-color); /* Fondo beige clarito */
-    color: var(--burgundy); /* Letras burdeo */
+    background-color: var(--bg-color);
+    color: var(--burgundy);
     padding: 15px 30px;
     border: none;
     border-radius: 30px;
@@ -220,12 +207,11 @@ ul { list-style: none; }
 }
 
 .btn-hero:hover {
-    background-color: white; /* Brilla al blanco puro al pasar el mouse */
-    transform: translateY(-3px); /* Da un saltito hacia arriba */
+    background-color: white;
+    transform: translateY(-3px);
 }
 
 /* ================= COMPONENTES GENERALES ================= */
-/* Botón estándar usado en el resto de la página */
 .btn-primary {
     background-color: var(--burgundy);
     color: white;
@@ -239,59 +225,51 @@ ul { list-style: none; }
 
 .btn-primary:hover { background-color: var(--burgundy-hover); }
 
-/* Títulos de las secciones intermedias */
 .section-title {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 40px;
 }
 
-/* ================= GRID DE PRODUCTOS (CATÁLOGO) ================= */
+/* ================= GRID DE PRODUCTOS ================= */
 .product-grid {
-    display: grid; /* Usa CSS Grid para acomodar elementos en cuadrícula */
-    /* Crea columnas que miden mínimo 250px, y si sobra espacio, se estiran por igual (1fr). Esto lo hace Responsive automático */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Espacio entre cada tarjeta de galleta */
-    padding: 40px 10vw; /* Padding lateral del 10% del ancho de pantalla */
+    gap: 30px;
+    padding: 40px 10vw;
 }
 
-/* Tarjeta individual de cada galleta */
 .product-card {
     background: var(--white-cards);
     border-radius: 15px;
-    overflow: hidden; /* Corta la imagen si es cuadrada para que respete los bordes redondos de la tarjeta */
+    overflow: hidden;
     padding-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombrecita sutil */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .product-card img { 
     width: 100%; 
     height: 250px; 
-    object-fit: cover; /* Evita que la foto de la galleta se estire feo, la recorta bonito */
+    object-fit: cover; 
 }
 
 .product-info { padding: 15px 20px; }
 .product-info h3 { margin-bottom: 5px; }
 .product-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
-.price-row { display: flex; justify-content: space-between; align-items: center; } /* Separa el precio a la izquierda y el botón a la derecha */
-
-/* Botoncito de agregar al carro en la tarjeta */
+.price-row { display: flex; justify-content: space-between; align-items: center; }
 .btn-add { background: var(--burgundy); color: white; border: none; padding: 8px 15px; border-radius: 15px; cursor: pointer; }
 
-/* ================= SECCIONES EXTRAS (Calidad y Testimonios) ================= */
-/* Sección de fotos y checklist */
+/* ================= SECCIONES EXTRAS ================= */
 .quality-section { display: flex; padding: 60px 10vw; gap: 40px; align-items: center; }
-.quality-images { display: flex; gap: 15px; flex: 1; } /* Contenedor de las dos imágenes divididas */
-.quality-images img { width: 48%; border-radius: 15px; object-fit: cover; } /* Cada imagen ocupa casi la mitad */
-.quality-text { flex: 1; } /* El texto ocupa el otro 50% de la pantalla */
+.quality-images { display: flex; gap: 15px; flex: 1; }
+.quality-images img { width: 48%; border-radius: 15px; object-fit: cover; }
+.quality-text { flex: 1; }
 .quality-text ul { margin-top: 20px; line-height: 2; }
 
-/* Sección rosa de opiniones */
 .testimonials { background-color: var(--pink-light); padding: 60px 10vw; text-align: center; }
-.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; } /* Fuerzo 3 columnas para PC */
+.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
 .test-card { background: var(--white-cards); padding: 30px; border-radius: 10px; }
 
-/* Caja de recolección de correos (Newsletter) */
 .newsletter {
     background-color: var(--burgundy);
     color: white;
@@ -303,45 +281,34 @@ ul { list-style: none; }
 .newsletter h2 { color: white; }
 .newsletter input { padding: 12px; width: 60%; max-width: 300px; border: none; border-radius: 5px; margin-right: 10px; }
 
-/* ================= TIENDA (PÁGINA PRODUCTO INDIVIDUAL) ================= */
+/* ================= TIENDA (PRODUCTO INDIVIDUAL) ================= */
 .product-detail {
     display: flex;
     padding: 60px 10vw;
     gap: 50px;
 }
 
-/* Cuadrícula de fotos del producto (Tipo álbum) */
 .product-gallery { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.main-img { grid-column: span 2; width: 100%; border-radius: 15px; } /* Imagen principal arriba, abarca 2 columnas */
-.sub-img { width: 100%; border-radius: 15px; } /* Imágenes pequeñitas abajo */
+.main-img { grid-column: span 2; width: 100%; border-radius: 15px; }
+.sub-img { width: 100%; border-radius: 15px; }
 
-/* Info del lado derecho de la página tienda */
 .product-data { flex: 1; }
 .product-data h1 { font-size: 3rem; margin-bottom: 10px; }
 .product-data .price { font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; }
 .product-data p { color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; }
 
-/* Selector de cantidad [ - 1 + ] */
-.qty-selector {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
+.qty-selector { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
 .qty-btn { background: var(--white-cards); border: 1px solid var(--border-color); padding: 10px 15px; cursor: pointer; border-radius: 5px;}
 .qty-input { width: 50px; text-align: center; border: none; background: transparent; font-size: 1.1rem;}
 
-/* Botón grandote de comprar en la ficha de producto */
 .btn-large {
-    width: 100%; /* Abarca todo el ancho disponible de la columna */
+    width: 100%;
     padding: 15px;
     font-size: 1.2rem;
     border-radius: 30px;
     margin-bottom: 30px;
 }
 
-/* Etiquetas (Ej: Contiene Lactosa) */
 .tags span {
     background: var(--pink-light);
     color: var(--burgundy);
@@ -353,8 +320,8 @@ ul { list-style: none; }
 
 /* ================= FOOTER ================= */
 footer {
-    display: flex; /* Divide el footer en bloques */
-    justify-content: space-between; /* Manda los bloques a los extremos */
+    display: flex;
+    justify-content: space-between;
     padding: 40px 10vw;
     background-color: var(--bg-color);
     border-top: 1px solid var(--border-color);
