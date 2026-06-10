@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetBite | Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <button id="theme-toggle" class="btn-theme"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">SweetBite</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Catálogo</a></li>
+                <li><a href="#">Nuestra Historia</a></li>
+                <li><a href="#">Suscripciones</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Momentos dulces, horneados a mano</h1>
+            <p>Descubre la magia en cada bocado con nuestras galletas artesanales, creadas con pasión y los mejores ingredientes locales.</p>
+            <button class="btn-primary" onclick="window.location.href='tienda.html'">Explorar Colección</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80" alt="Galletas artesanales">
+        </div>
+    </section>
+
+    <section>
+        <h2 style="padding-left: 10vw; color: var(--text-muted); font-size: 1rem; text-transform: uppercase;">Los Favoritos</h2>
+        <h2 style="padding-left: 10vw; font-size: 2.5rem; margin-bottom: 20px;">Best Sellers</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80" alt="Classic Choc">
+                <div class="product-info">
+                    <h3>Classic Choc</h3>
+                    <p>Nuestra receta original con chips de chocolate 70% cacao.</p>
+                    <div class="price-row">
+                        <span>$3.50</span>
+                        <button class="btn-add">+ Quick Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1618923850106-920fdfbf5263?auto=format&fit=crop&q=80" alt="Velvet Red">
+                <div class="product-info">
+                    <h3>Velvet Red</h3>
+                    <p>Suave como el terciopelo con notas de cacao y chocolate blanco.</p>
+                    <div class="price-row">
+                        <span>$4.50</span>
+                        <button class="btn-add" onclick="window.location.href='tienda.html'">+ Quick Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1557089706-68d02283a005?auto=format&fit=crop&q=80" alt="Salted Caramel">
+                <div class="product-info">
+                    <h3>Salted Caramel</h3>
+                    <p>Caramelo artesanal y un toque de sal marina de la costa.</p>
+                    <div class="price-row">
+                        <span>$3.95</span>
+                        <button class="btn-add">+ Quick Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quality-section">
+        <div class="quality-images">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80" alt="Ingredientes">
+            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80" alt="Amasando">
+        </div>
+        <div class="quality-text">
+            <h2>Calidad que puedes saborear</h2>
+            <p>En SweetBite, creemos que lo extraordinario nace de lo simple. Por eso utilizamos ingredientes naturales y locales para garantizar esa textura perfecta que tanto amas.</p>
+            <ul>
+                <li><i class="fas fa-check-circle" style="color: var(--burgundy);"></i> 100% Ingredientes Naturales</li>
+                <li><i class="fas fa-check-circle" style="color: var(--burgundy);"></i> Sin Conservantes Artificiales</li>
+                <li><i class="fas fa-check-circle" style="color: var(--burgundy);"></i> Horneado Diario con Amor</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>Lo que dicen nuestros SweetLovers</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Las mejores galletas que he probado en mi vida. La de Salted Caramel es de otro mundo."</p>
+                <br><strong>— María G.</strong>
+            </div>
+            <div class="test-card">
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"El regalo perfecto. El packaging es tan cuidado como el sabor. ¡Repetiré seguro!"</p>
+                <br><strong>— Carlos R.</strong>
+            </div>
+            <div class="test-card">
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>"Se nota que usan ingredientes de verdad. Me encanta apoyar a productores locales."</p>
+                <br><strong>— Elena M.</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>¿Quieres un bocado gratis?</h2>
+        <p style="margin-bottom: 20px;">Suscríbete a nuestro newsletter y recibe un 10% de descuento en tu primer pedido.</p>
+        <input type="email" placeholder="Tu correo electrónico">
+        <button class="btn-primary" style="background-color: #1a0508;">Suscribirse</button>
+    </section>
+
+    <footer>
+        <div>
+            <h3>SweetBite</h3>
+            <p>Crafting moments of pure indulgence.<br>© 2026 SweetBite Artisanal Cookies.</p>
+        </div>
+        <div>
+            <p><strong>Explore</strong></p>
+            <ul><li>Catálogo</li><li>Newsletter</li></ul>
+        </div>
+        <div>
+            <p><strong>Support</strong></p>
+            <ul><li>Contacto</li><li>Privacidad</li></ul>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
