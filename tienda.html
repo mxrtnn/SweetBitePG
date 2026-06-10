@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetBite | Velvet Red</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <button id="theme-toggle" class="btn-theme"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">SweetBite</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Catálogo</a></li>
+                <li><a href="#">Nuestra Historia</a></li>
+                <li><a href="#">Suscripciones</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-detail">
+        <div class="product-gallery">
+            <img class="main-img" src="https://images.unsplash.com/photo-1618923850106-920fdfbf5263?auto=format&fit=crop&q=80" alt="Velvet Red Abierta">
+            <img class="sub-img" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80" alt="Detalle Masa">
+            <img class="sub-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80" alt="Galletas apiladas">
+        </div>
+
+        <div class="product-data">
+            <p style="text-transform: uppercase; font-size: 0.8rem; color: var(--text-muted);">Cookies > Limited Edition</p>
+            <h1>Velvet Red</h1>
+            <p class="price">$4.50 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/ unit</span></p>
+            
+            <p>Nuestra icónica Velvet Red con trozos de chocolate blanco y un corazón de queso crema. Una experiencia indulgente que combina la suavidad del cacao con el toque artesanal de nuestra receta secreta.</p>
+            
+            <div class="qty-selector">
+                <button class="qty-btn" id="btn-minus">-</button>
+                <input type="text" id="qty-input" class="qty-input" value="1" readonly>
+                <button class="qty-btn" id="btn-plus">+</button>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Limit 12 per order</span>
+            </div>
+
+            <button class="btn-primary btn-large" onclick="alert('¡Añadido al carrito!')">Add to Cart</button>
+
+            <div class="tags" style="margin-bottom: 30px;">
+                <span>Contains Dairy</span>
+                <span>Wheat Flour</span>
+                <span>May contain nuts</span>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding: 15px 0; display: flex; justify-content: space-between;">
+                <strong>Nutritional Information</strong> <i class="fas fa-chevron-down"></i>
+            </div>
+            <div style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; display: flex; justify-content: space-between;">
+                <strong>Shipping & Handling</strong> <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </main>
+
+    <section style="background-color: var(--bg-color);">
+        <h2 style="padding-left: 10vw; font-size: 2.5rem;">You might also like</h2>
+        <p style="padding-left: 10vw; color: var(--text-muted);">Curated pairings for your sweet tooth</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80" alt="Triple Choco">
+                <div class="product-info">
+                    <h3>Triple Choco</h3>
+                    <p>Dark, milk and white chocolate symphony.</p>
+                    <div class="price-row"><span>$4.00</span><button class="btn-add">+</button></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80" alt="Pistachio Dream">
+                <div class="product-info">
+                    <h3>Pistachio Dream</h3>
+                    <p>Slow-roasted pistachios with a honey glaze.</p>
+                    <div class="price-row"><span>$5.20</span><button class="btn-add">+</button></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1605666807892-8c11d020bed5?auto=format&fit=crop&q=80" alt="Lemon Zest">
+                <div class="product-info">
+                    <h3>Lemon Zest</h3>
+                    <p>Bright citrus glaze with a buttery crumb.</p>
+                    <div class="price-row"><span>$3.80</span><button class="btn-add">+</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>SweetBite</h3>
+            <p>Crafting moments of pure indulgence.<br>© 2026 SweetBite Artisanal Cookies.</p>
+        </div>
+        <div>
+            <p><strong>Explore</strong></p>
+            <ul><li>Catálogo</li><li>Newsletter</li></ul>
+        </div>
+        <div>
+            <p><strong>Support</strong></p>
+            <ul><li>Contacto</li><li>Privacidad</li></ul>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
