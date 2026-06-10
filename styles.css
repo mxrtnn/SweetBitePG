@@ -1,17 +1,15 @@
 /* ================= VARIABLES Y RESET ================= */
 :root {
-    /* Modo Claro */
-    --bg-color: #F8F6F0;       /* Beige clarito para el fondo de la página */
-    --text-main: #2A1A1A;      /* Color principal del texto (casi negro) */
-    --text-muted: #665A5A;     /* Color secundario para subtítulos o textos menos importantes */
-    --burgundy: #4A0E17;       /* Burdeo oscuro (el color de tu marca) */
-    --burgundy-hover: #2F080E; /* Burdeo más oscuro para cuando el mouse pasa sobre un botón */
-    --pink-light: #FDE8E9;     /* Rosa pálido para detalles y fondos secundarios */
-    --white-cards: #FFFFFF;    /* Blanco puro para el fondo de las tarjetas de producto */
-    --border-color: #E5E0D8;   /* Color de las líneas separadoras */
+    --bg-color: #F8F6F0;       
+    --text-main: #2A1A1A;      
+    --text-muted: #665A5A;     
+    --burgundy: #4A0E17;       
+    --burgundy-hover: #2F080E; 
+    --pink-light: #FDE8E9;     
+    --white-cards: #FFFFFF;    
+    --border-color: #E5E0D8;   
 }
 
-/* Variables para cuando el "Modo Oscuro" está activado */
 body.dark-mode {
     --bg-color: #121212;
     --text-main: #EAEAEA;
@@ -21,108 +19,121 @@ body.dark-mode {
     --pink-light: #2A1A1C;
     --white-cards: #1E1E1E;
     --border-color: #333333;
-    
-    /* IMPORTANTE: Apagamos el patrón de "miguitas" de fondo en modo oscuro */
     background-image: none; 
 }
 
-/* El asterisco (*) aplica estas reglas a TODOS los elementos de la página */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Reglas generales para el cuerpo de la página */
 body {
     background-color: var(--bg-color);
-    /* Patrón de fondo sutil (simula chispas o harina esparcida) */
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234A0E17' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='5' cy='5' r='2'/%3E%3Ccircle cx='25' cy='25' r='2'/%3E%3Cpath d='M15 35 l4 -4 l-4 -4 z'/%3E%3Cpath d='M35 15 l4 -4 l-4 -4 z'/%3E%3C/g%3E%3C/svg%3E");
     color: var(--text-main);
     transition: background-color 0.3s, color 0.3s;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Títulos */
 h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif; /* Fuente elegante y premium para títulos */
+    font-family: 'Playfair Display', serif; 
     color: var(--burgundy);
 }
 
-/* Cambia el color de los títulos a blanco/gris claro cuando está en modo oscuro */
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
     color: var(--text-main);
 }
 
-/* Quita el subrayado de los enlaces y los puntos de las listas */
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* ================= TOP BAR & NAVBAR (DISEÑO FLOTANTE) ================= */
-.top-bar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 40px 0px 40px;
-    background-color: var(--bg-color);
-}
-
-.btn-theme {
-    background: var(--burgundy);
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-/* Animación para que el Navbar flote */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); } /* Sube 8 píxeles suavemente */
-    100% { transform: translateY(0px); }
-}
+/* ================= HEADER & NAVBAR (DISEÑO PÍLDORA) ================= */
 
 .header-wrapper {
-    background-color: transparent; /* Fondo transparente para ver el patrón atrás */
-    padding: 10px 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 15px 4vw;
     position: sticky;
-    top: 10px; /* Margen superior para que flote bien */
+    top: 0;
     z-index: 100;
-    animation: float 4s ease-in-out infinite; /* Aplica la animación */
+    background-color: transparent;
+}
+
+/* Nuevo diseño para el contenedor del logo y título */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    cursor: pointer;
+}
+
+.brand-logo img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 2px solid var(--burgundy); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.brand-logo img:hover {
+    transform: scale(1.05); 
+}
+
+/* Estilos para el título "SweetBite" */
+.brand-name {
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    transition: color 0.3s;
+}
+
+body.dark-mode .brand-name {
+    color: var(--text-main);
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, -8px); } 
+    100% { transform: translate(-50%, 0px); }
 }
 
 .navbar {
+    position: absolute; 
+    left: 50%;
+    animation: float 4s ease-in-out infinite; 
+    
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    gap: 40px; 
+    padding: 12px 35px;
     background-color: var(--burgundy);
     border-radius: 50px;
     box-shadow: 0 15px 35px rgba(74, 14, 23, 0.2);
-    position: relative; /* Necesario para centrar los enlaces absolutamente */
+    width: max-content; 
 }
 
-.navbar .logo {
-    color: var(--bg-color); 
-}
-
-/* Centrado absoluto de los links */
 .nav-links {
     display: flex;
-    gap: 30px;
-    font-size: 0.9rem;
+    gap: 25px;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Centra perfectamente */
 }
 
 .navbar .nav-links a {
     color: var(--bg-color);
     font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a i {
+    margin-right: 6px; 
+    font-size: 1rem;
 }
 
 .navbar .nav-links a:hover {
@@ -131,9 +142,55 @@ ul { list-style: none; }
 
 .nav-icons {
     display: flex;
+    align-items: center;
     gap: 20px;
-    font-size: 1.2rem;
     color: var(--bg-color);
+    font-size: 1.1rem;
+}
+
+.btn-theme-nav {
+    background: transparent;
+    color: var(--bg-color);
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.btn-theme-nav:hover {
+    color: var(--pink-light);
+    transform: scale(1.1);
+}
+
+/* ================= COMPONENTES GENERALES ================= */
+.btn-primary {
+    background-color: var(--burgundy);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    
+    /* Clonamos la fuente, tamaño y espaciado de la Navbar */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover { 
+    background-color: var(--burgundy-hover); 
+    transform: translateY(-2px);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
 }
 
 /* ================= HERO CAROUSEL ================= */
@@ -211,26 +268,6 @@ ul { list-style: none; }
     transform: translateY(-3px);
 }
 
-/* ================= COMPONENTES GENERALES ================= */
-.btn-primary {
-    background-color: var(--burgundy);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-.btn-primary:hover { background-color: var(--burgundy-hover); }
-
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-}
-
 /* ================= GRID DE PRODUCTOS ================= */
 .product-grid {
     display: grid;
@@ -282,12 +319,7 @@ ul { list-style: none; }
 .newsletter input { padding: 12px; width: 60%; max-width: 300px; border: none; border-radius: 5px; margin-right: 10px; }
 
 /* ================= TIENDA (PRODUCTO INDIVIDUAL) ================= */
-.product-detail {
-    display: flex;
-    padding: 60px 10vw;
-    gap: 50px;
-}
-
+.product-detail { display: flex; padding: 60px 10vw; gap: 50px; }
 .product-gallery { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .main-img { grid-column: span 2; width: 100%; border-radius: 15px; }
 .sub-img { width: 100%; border-radius: 15px; }
@@ -301,13 +333,7 @@ ul { list-style: none; }
 .qty-btn { background: var(--white-cards); border: 1px solid var(--border-color); padding: 10px 15px; cursor: pointer; border-radius: 5px;}
 .qty-input { width: 50px; text-align: center; border: none; background: transparent; font-size: 1.1rem;}
 
-.btn-large {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    margin-bottom: 30px;
-}
+.btn-large { width: 100%; padding: 15px; font-size: 1.2rem; border-radius: 30px; margin-bottom: 30px; }
 
 .tags span {
     background: var(--pink-light);

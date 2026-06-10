@@ -5,41 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SweetBite | Inicio</title>
     
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlaces a CSS y FontAwesome limpios y sin duplicar -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-</head>
 <body>
 
-    <div class="top-bar">
-        <button id="theme-toggle" class="btn-theme"><i class="fas fa-moon"></i></button>
-    </div>
-
+    <!-- ================= HEADER COMPLETO ================= -->
     <div class="header-wrapper">
+        
+        <!-- Izquierda: Logo circular -->
+        <div class="brand-logo">
+            <img src="assets/img/icono.png" alt="SweetBite Logo">
+        </div>
+        
+        <!-- Centro: Navbar (Diseño Píldora) -->
         <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-cookie-bite" style="font-size: 1.8rem;"></i>
-            </div>
-            
             <ul class="nav-links">
-                <li><a href="index.html">Catálogo</a></li>
-                <li><a href="#">Nuestra Historia</a></li>
-                <li><a href="#">Suscripciones</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-user-friends"></i> Nosotros</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> Catálogo</a></li>
+                <li><a href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a></li>
             </ul>
             
+            <!-- Ícono Modo Oscuro integrado -->
             <div class="nav-icons">
-                <i class="fas fa-shopping-cart" style="cursor: pointer;"></i>
-                <i class="fas fa-user-circle" style="cursor: pointer;"></i>
+                <button class="btn-theme-nav" id="theme-toggle" title="Cambiar modo">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
+        
+        <!-- Derecha: Botón de Registro -->
+        <div class="header-actions">
+            <button class="btn-primary">Regístrate</button>
+        </div>
+        
     </div>
 
+    <!-- ================= CAROUSEL ================= -->
     <section class="hero-carousel">
         <div class="carousel-slides">
             <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80');"></div>
@@ -56,6 +65,7 @@
         </div>
     </section>
 
+    <!-- ================= PRODUCTOS ================= -->
     <section>
         <h2 style="padding-left: 10vw; color: var(--text-muted); font-size: 1rem; text-transform: uppercase;">Los Favoritos</h2>
         <h2 style="padding-left: 10vw; font-size: 2.5rem; margin-bottom: 20px;">Best Sellers</h2>
@@ -99,6 +109,7 @@
         </div>
     </section>
 
+    <!-- ================= CALIDAD ================= -->
     <section class="quality-section">
         <div class="quality-images">
             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80" alt="Ingredientes">
@@ -115,6 +126,7 @@
         </div>
     </section>
 
+    <!-- ================= TESTIMONIOS ================= -->
     <section class="testimonials">
         <h2>Lo que dicen nuestros SweetLovers</h2>
         <div class="test-grid">
@@ -136,6 +148,7 @@
         </div>
     </section>
 
+    <!-- ================= NEWSLETTER ================= -->
     <section class="newsletter">
         <h2>¿Quieres un bocado gratis?</h2>
         <p style="margin-bottom: 20px;">Suscríbete a nuestro newsletter y recibe un 10% de descuento en tu primer pedido.</p>
@@ -143,6 +156,7 @@
         <button class="btn-primary" style="background-color: #1a0508;">Suscribirse</button>
     </section>
 
+    <!-- ================= FOOTER ================= -->
     <footer>
         <div>
             <h3>SweetBite</h3>
