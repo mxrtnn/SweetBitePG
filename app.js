@@ -51,3 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// ================= LÓGICA DEL CARRUSEL (Página Inicio) =================
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    if (slides.length > 0) {
+        setInterval(() => {
+            // Quitar clase active a la actual
+            slides[currentSlide].classList.remove('active');
+            
+            // Pasar a la siguiente (y volver a 0 si llega al final)
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Agregar clase active a la nueva
+            slides[currentSlide].classList.add('active');
+        }, 5000); // 5000 milisegundos = 5 segundos
+    }

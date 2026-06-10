@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SweetBite | Inicio</title>
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
 
@@ -13,29 +21,36 @@
         <button id="theme-toggle" class="btn-theme"><i class="fas fa-moon"></i></button>
     </div>
 
-    <header>
+    <div class="header-wrapper">
         <nav class="navbar">
             <div class="logo">SweetBite</div>
+            
             <ul class="nav-links">
                 <li><a href="index.html">Catálogo</a></li>
                 <li><a href="#">Nuestra Historia</a></li>
                 <li><a href="#">Suscripciones</a></li>
             </ul>
+            
             <div class="nav-icons">
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-shopping-cart" style="cursor: pointer;"></i>
+                <i class="fas fa-user-circle" style="cursor: pointer;"></i>
             </div>
         </nav>
-    </header>
+    </div>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Momentos dulces, horneados a mano</h1>
-            <p>Descubre la magia en cada bocado con nuestras galletas artesanales, creadas con pasión y los mejores ingredientes locales.</p>
-            <button class="btn-primary" onclick="window.location.href='tienda.html'">Explorar Colección</button>
+    <section class="hero-carousel">
+        <div class="carousel-slides">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1618923850106-920fdfbf5263?auto=format&fit=crop&q=80');"></div>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80" alt="Galletas artesanales">
+        
+        <div class="carousel-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>Momentos dulces,<br>horneados a mano</h1>
+            <p>Descubre la magia en cada bocado con nuestras galletas artesanales, creadas con pasión y los mejores ingredientes locales.</p>
+            <button class="btn-hero" onclick="window.location.href='tienda.html'">Explorar Colección</button>
         </div>
     </section>
 
@@ -55,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1618923850106-920fdfbf5263?auto=format&fit=crop&q=80" alt="Velvet Red">
                 <div class="product-info">
@@ -66,6 +82,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1557089706-68d02283a005?auto=format&fit=crop&q=80" alt="Salted Caramel">
                 <div class="product-info">
@@ -131,11 +148,17 @@
         </div>
         <div>
             <p><strong>Explore</strong></p>
-            <ul><li>Catálogo</li><li>Newsletter</li></ul>
+            <ul>
+                <li style="cursor: pointer; margin-bottom: 5px;">Catálogo</li>
+                <li style="cursor: pointer;">Newsletter</li>
+            </ul>
         </div>
         <div>
             <p><strong>Support</strong></p>
-            <ul><li>Contacto</li><li>Privacidad</li></ul>
+            <ul>
+                <li style="cursor: pointer; margin-bottom: 5px;">Contacto</li>
+                <li style="cursor: pointer;">Privacidad</li>
+            </ul>
         </div>
     </footer>
 
